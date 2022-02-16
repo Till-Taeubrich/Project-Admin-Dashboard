@@ -115,6 +115,7 @@ p {
 	grid-area: 2 / 2 / 3 / 3;
 	display: flex;
 	justify-content: space-between;
+	gap: min(0.5rem);
 	margin-right: 1rem;
 }
 
