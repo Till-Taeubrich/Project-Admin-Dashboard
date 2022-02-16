@@ -242,5 +242,13 @@ p {
 }
 
 .dashboardIcon {
-	height: 40px;
+	height: 2.5rem;
+}
+
+.blockOne img,
+.blockTwo img,
+.bellIcon,
+.searchbar img,
+.contentCards img {
+	width: 1.5rem;
 }
