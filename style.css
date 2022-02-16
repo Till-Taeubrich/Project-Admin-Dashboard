@@ -1,11 +1,14 @@
+@font-face {
+	font-family: Roboto;
+	src: url(/font/Roboto-Regular.ttf);
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
-	border: 1px red solid;
+	font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -14,12 +17,36 @@ body {
 	grid-template-rows: 1fr 5fr;
 }
 
+p {
+	color: rgb(102, 102, 102);
+}
 /* Sidebar-Section */
 
 .sidebar {
 	grid-area: 1 / 1 / 3 / 2;
 	display: grid;
-	grid-template-rows: 1fr 3fr 2fr;
+	grid-template-rows: 1fr 3fr 5fr;
+	color: white;
+	background-color: #1992d4;
+}
+
+.dashboard,
+.blockOne > div,
+.blockTwo > div {
+	display: flex;
+	gap: 1.3rem;
+	margin: 1rem;
+	font-weight: bold;
+}
+
+.dashboard {
+	/* align-items: center; */
+	font-size: 1.3rem;
+}
+
+.blockOne > div,
+.blockTwo > div {
+	margin-left: 1.5rem;
 }
 
 /* Header-Section */
@@ -28,62 +55,187 @@ body {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	grid-template-rows: 1fr 2fr;
+	align-items: center;
+	margin-top: 1rem;
 }
 
 .header .searchbar {
 	grid-area: 1 / 1 / 2 / 2;
 	display: grid;
 	grid-template-columns: 1fr 10fr;
+	align-items: center;
+}
+
+.header .searchbar input {
+	background-color: #e2e8f0;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 999px;
+	font-size: 1rem;
+}
+
+.header .searchbar > img {
+	justify-self: end;
+	margin-right: 0.7rem;
 }
 
 .header .profileArea {
 	display: grid;
-	grid-template-columns: 1fr 1fr 2fr;
+	grid-template-columns: 4fr 1fr 6fr;
+	align-items: center;
+	justify-content: end;
+}
+
+.header .profileArea > img {
+	justify-self: end;
+	margin-right: 1rem;
 }
 
 .header .greetingArea {
 	grid-area: 2 / 1 / 3 / 2;
 	display: grid;
+	align-items: center;
 	grid-template-columns: 1fr 5fr;
+	margin-left: 2rem;
 }
 
 .header .greetingArea .userGreeting {
 	grid-area: 1 / 2 / 2 / 3;
 }
 
+.header .greetingArea .userGreeting > h3 {
+	font-size: 1.3rem;
+}
+
+.header .greetingArea .userGreeting > h6 {
+	font-size: 0.8rem;
+}
+
 .header .socialButtons {
 	grid-area: 2 / 2 / 3 / 3;
+	display: flex;
+	justify-content: space-between;
+	margin-right: 1rem;
+}
+
+.header .socialButtons > button {
+	border: none;
+	padding: 0.5em 2em;
+	border-radius: 999px;
+	background-color: #1992d4;
+	color: white;
+}
+
+.header .socialButtons > button:active {
+	transform: scale(0.98);
+}
+
+.header .socialButtons > button:hover {
+	background: #1fb0ff;
 }
 
 /* Main-Content-Section */
+
+/* left */
 
 .contentContainer {
 	grid-area: 2 / 2 / 3 / 3;
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	grid-template-rows: 1fr 10fr;
+	background-color: #e2e8f0;
+	padding: 1rem;
 }
 
-/* .contentContainer > h3 {
-	display: inline;
-} */
-
-.contentContainer .leftArea {
+.contentContainer .contentHeadlines {
+	align-self: flex-end;
+	margin-bottom: 1rem;
+}
+.contentContainer .contentCards {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-template-rows: repeat(auto-fit, 1fr);
+	margin-right: 1rem;
+	gap: 1rem;
 }
+
+.contentCards .contentCard {
+	display: grid;
+	border-left: 7px solid #f0b429;
+	border-radius: 5px;
+	background-color: white;
+}
+
+.contentCards .contentCard .cardText {
+	margin: 1rem;
+}
+
+.contentCards .contentCard .cardText > h5 {
+	font-size: large;
+	margin-bottom: 0.3rem;
+}
+.contentCards .contentCard .cardIcon {
+	justify-self: end;
+	align-self: flex-end;
+	margin-bottom: 1rem;
+}
+
+.contentCards .contentCard .cardIcon > img {
+	margin-right: 1rem;
+}
+
+/* right */
 
 .contentContainer .rightArea {
 	display: grid;
+	gap: 1rem;
 }
 
 .contentContainer .rightArea .announcementCards {
 	display: grid;
 	grid-template-rows: repeat(3, 1fr);
+
+	background-color: white;
 }
 
+.contentContainer .rightArea .announcementCards .announcementCard {
+	margin: 1rem;
+	border-bottom: 0.5px rgb(102, 102, 102) solid;
+}
+
+.contentContainer .rightArea .announcementCards .noBottomBorder {
+	border-bottom: none;
+}
 .contentContainer .rightArea .trendingCards {
 	display: grid;
-	grid-template-rows: repeat(1fr repeat(3, 2fr));
+	grid-template-rows: repeat(1fr repeat(4, 2fr));
+	grid-template-columns: 1fr 2fr;
+	background-color: white;
+}
+
+.contentContainer .rightArea .trendingCards > img {
+	justify-self: center;
+}
+
+.trendingCards > #headlineTrending {
+	grid-column: 1 / 3;
+	background-color: #e2e8f0;
+	align-self: flex-start;
+	padding-bottom: 1rem;
+	margin-bottom: 0;
+}
+
+/* picture resizing */
+
+.MainProfilePicture {
+	height: 4rem;
+	border-radius: 50%;
+}
+
+.profilePictures {
+	height: 3rem;
+	border-radius: 50%;
+}
+
+.dashboardIcon {
+	height: 40px;
 }
