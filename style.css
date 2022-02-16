@@ -101,6 +101,7 @@ p {
 	align-items: center;
 	grid-template-columns: 1fr 5fr;
 	margin-left: 2rem;
+	gap: min(1rem);
 }
 
 .header .greetingArea .userGreeting {
